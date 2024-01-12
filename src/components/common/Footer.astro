@@ -1,0 +1,25 @@
+---
+---
+
+<footer class="root">
+  <div class="inner">フッター</div>
+</footer>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    margin-top: g.rem(40px);
+    padding: g.rem(20px) 0;
+
+    @include g.mediaQuery() {
+      padding: g.rem(30px) 0;
+    }
+  }
+
+  // ---------- インナー要素 ----------
+  .inner {
+    @include g.centering();
+  }
+</style>

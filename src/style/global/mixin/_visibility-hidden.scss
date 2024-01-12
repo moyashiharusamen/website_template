@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+// ========== visibility hidden ==========
+@mixin visibilityHidden() {
+  display: block;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  white-space: nowrap;
+}

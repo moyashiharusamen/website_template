@@ -1,0 +1,94 @@
+---
+export interface Props {
+  text: string;
+  href: string;
+  blank?: boolean;
+}
+
+const { text, href, blank } = Astro.props;
+---
+
+<div class="root">
+  <a
+    class="link"
+    href={`${href}`}
+    target={`${blank ? '_blank' : ''}`}
+    set:html={text}
+  />
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    display: flex;
+    justify-content: center;
+    margin-top: g.rem(40px);
+
+    @include g.mediaQuery() {
+      margin-top: g.rem(60px);
+    }
+
+    & + .root {
+      margin-top: g.rem(20px);
+
+      @include g.mediaQuery() {
+        margin-top: g.rem(30px);
+      }
+    }
+  }
+
+  // ---------- テキスト要素 ----------
+  .link {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    max-width: g.rem(500px);
+    padding: g.rem(10px) g.rem(40px);
+    background: g.$base-color;
+    border-radius: g.rem(4px);
+    outline: g.rem(2px) solid g.$base-color;
+    outline-offset: g.rem(-2px);
+    color: #fff;
+    font-size: g.rem(20px);
+    font-weight: 500;
+    text-decoration: none;
+    transform: translateZ(0);
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+    position: relative;
+
+    @include g.mediaQuery() {
+      min-width: g.rem(400px);
+      min-height: g.rem(60px);
+      padding: g.rem(10px) g.rem(60px);
+      font-size: g.rem(24px);
+    }
+
+    // 矢印
+    &::after {
+      content: '';
+      display: block;
+      width: g.rem(14px);
+      height: g.rem(14px);
+      margin: auto;
+      border-top: 1px solid #fff;
+      border-right: 1px solid #fff;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 0;
+      right: g.rem(30px);
+      bottom: 0;
+      transition: border 0.2s ease-in-out;
+    }
+
+    @include g.hover() {
+      background: #fff;
+      color: g.$base-color;
+
+      &::after {
+        border-color: g.$base-color;
+      }
+    }
+  }
+</style>

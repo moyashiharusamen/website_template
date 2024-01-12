@@ -1,0 +1,41 @@
+---
+export interface Props {
+  imgSrc: string;
+  alt: string;
+  width: string;
+  height: string;
+  async?: boolean;
+}
+
+const { imgSrc, alt, width, height, async } = Astro.props;
+---
+
+<div class="root">
+  <img
+    class="img"
+    src={`${imgSrc}`}
+    alt={`${alt}`}
+    width={`${width}`}
+    height={`${height}`}
+    decoding={async ? 'async' : 'sync'}
+  />
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    margin-top: g.rem(20px);
+    display: flex;
+    justify-content: center;
+
+    @include g.mediaQuery() {
+      margin-top: g.rem(40px);
+    }
+  }
+
+  // ---------- 画像要素 ----------
+  .img {
+  }
+</style>

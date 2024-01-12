@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+// ========== hover ==========
+@mixin hover() {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+
+  &:is(:hover, :active, :focus) {
+    @content;
+  }
+}

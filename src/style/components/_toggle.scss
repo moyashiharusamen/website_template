@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+@use '../global' as g;
+
+.toggle {
+  @at-root {
+    // ---------- 基底要素 ----------
+
+    // ---------- トグルを開閉するボタン要素 ----------
+
+    // ---------- ボタン内のテキスト ----------
+    .toggle__button__mark,
+    .accordionItem__button__mark {
+      @include g.visibilityHidden();
+    }
+
+    // ---------- トグルの本体要素 ----------
+    .toggle__body,
+    .accordionItem__body {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.3s g.$easing, visibility 0.3s g.$easing, margin-top 0.3s g.$easing,
+        padding-top 0.3s g.$easing, padding-bottom 0.3s g.$easing;
+      will-change: margin-top, padding-top, padding-bottom;
+    }
+
+    // ---------- トグルの本体が閉じているとき ----------
+    .toggle__body[aria-hidden='true'],
+    .accordionItem__body[aria-hidden='true'] {
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+
+      * {
+        visibility: hidden;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+      }
+    }
+  }
+}

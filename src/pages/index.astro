@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Section from '@src/components/common/Section.astro';
+import Heading from '@src/components/parts/Heading.astro';
+import Text from '@src/components/parts/Text.astro';
+import ListLink from '@src/components/parts/ListLink.astro';
+---
+
+<BaseLayout
+  title="__dummy__"
+  description="__dummy__"
+  ogImage="__dummy__.jpg"
+>
+  <main>
+    <Section>
+      <Heading
+        level={1}
+        text="トップページ"
+      />
+
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+
+      <Heading
+        level={2}
+        text="見出しレベル2"
+      />
+
+      <ListLink
+        link={[
+          {
+            href: '/dev/',
+            text: '開発用ページ',
+          },
+          {
+            href: '/dev/pagelist/',
+            text: 'ページ一覧',
+          },
+          {
+            href: '/dev/components/',
+            text: 'コンポーネント一覧',
+          },
+        ]}
+      />
+    </Section>
+  </main>
+</BaseLayout>
+
+<style></style>
+
+<script></script>

@@ -1,0 +1,33 @@
+---
+---
+
+<header class="root">
+  <div class="inner">
+    <a
+      href="/"
+      title="トップページへのリンク"
+    >
+      ロゴ
+    </a>
+
+    <p>ヘッダー</p>
+  </div>
+</header>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    padding: g.rem(20px) 0;
+
+    @include g.mediaQuery() {
+      padding: g.rem(30px) 0;
+    }
+  }
+
+  // ---------- インナー要素 ----------
+  .inner {
+    @include g.centering();
+  }
+</style>

@@ -1,0 +1,106 @@
+---
+export interface Props {
+  buttonText: string;
+  bodyText: Array<string>;
+}
+
+const { buttonText, bodyText } = Astro.props;
+---
+
+<div class="root">
+  <div class="accordionItem">
+    <button
+      type="button"
+      class="button accordionItem__button"
+    >
+      {buttonText}
+
+      <span class="button__mark"><span class="accordionItem__button__mark">開く</span></span>
+    </button>
+
+    <div
+      class="body accordionItem__body"
+      aria-hidden="true"
+    >
+      {bodyText.map(item => <p set:html={item} />)}
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    width: 100%;
+    border: 1px solid g.$base-color;
+  }
+
+  // ---------- アコーディオンを開閉するボタン要素 ----------
+  .button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: g.rem(20px);
+    position: relative;
+
+    @include g.mediaQuery() {
+      transform: translateX(g.rem(-4px)) translateZ(0);
+    }
+  }
+
+  // ---------- アコーディオンボタン内の開閉を示すアイコン要素 ----------
+  .button__mark {
+    width: g.rem(30px);
+    height: g.rem(30px);
+    margin: auto;
+    border: 1px solid g.$base-color;
+    border-radius: 50vh;
+    position: absolute;
+    top: 0;
+    right: g.rem(20px);
+    bottom: 0;
+
+    @include g.mediaQuery() {
+      width: g.rem(35px);
+      height: g.rem(35px);
+    }
+
+    // 十字線
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      background: g.$base-color;
+      width: g.rem(15px);
+      height: g.rem(1px);
+      margin: auto;
+      transition: 0.2s transform ease-in-out;
+      position: absolute;
+      inset: 0;
+
+      @include g.mediaQuery() {
+        width: g.rem(15px);
+        height: g.rem(1px);
+      }
+    }
+
+    // 縦線
+    &::before {
+      transform: rotate(90deg);
+    }
+  }
+
+  // ---------- アコーディオン本体要素が開いているとき ----------
+  .button[aria-expanded='true'] {
+    .button__mark::before {
+      transform: rotate(0);
+    }
+  }
+
+  // ---------- アコーディオン本体要素 ----------
+  .body {
+    padding: 0 g.rem(20px) g.rem(20px);
+  }
+</style>

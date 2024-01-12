@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@use '../variables' as v;
+@use './mediaQuery' as mq;
+
+// ========== position ==========
+// コンテンツを中央寄せにする
+// コンテンツの最大値を設定するため、
+// variables.scss の $content-width と $content-width-pc に
+// 正しい数値を設定することが必要
+@mixin centering() {
+  width: 100%;
+  max-width: v.$content-size;
+  margin-inline: auto;
+  padding-right: v.$content-margin;
+  padding-left: v.$content-margin;
+  box-sizing: border-box;
+
+  @include mq.mediaQuery() {
+    padding-right: v.$content-margin-pc;
+    padding-left: v.$content-margin-pc;
+  }
+}

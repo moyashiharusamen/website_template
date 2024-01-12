@@ -1,0 +1,121 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Section from '@src/components/common/Section.astro';
+import Heading from '@src/components/parts/Heading.astro';
+import Text from '@src/components/parts/Text.astro';
+import List from '@src/components/parts/List.astro';
+---
+
+<BaseLayout
+  title="慣性スクロール"
+  description="慣性スクロール"
+>
+  <main class="momentumScrolling">
+    <Heading
+      level={1}
+      text="慣性スクロール"
+      centering={true}
+    />
+
+    <Section gray={true}>
+      <Heading
+        level={2}
+        text="見出し"
+      />
+
+      <List
+        text={[
+          'ライブラリ Lenis （https://lenis.studiofreight.com/） を使用して慣性スクロールを実装している',
+        ]}
+      />
+    </Section>
+
+    <Section>
+      <Heading
+        level={2}
+        text="見出し"
+      />
+
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+    </Section>
+
+    <Section gray={true}>
+      <Heading
+        level={2}
+        text="見出し"
+      />
+
+      <List
+        text={[
+          '引数 level（必須）は見出しレベルを1〜6の数値で設定してください',
+          '引数 text（必須）は見出しにしたいテキストを設定してください',
+        ]}
+      />
+    </Section>
+
+    <Section>
+      <Heading
+        level={2}
+        text="見出し"
+      />
+
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+    </Section>
+
+    <Section gray={true}>
+      <Heading
+        level={2}
+        text="見出し"
+      />
+
+      <List
+        text={[
+          '引数 level（必須）は見出しレベルを1〜6の数値で設定してください',
+          '引数 text（必須）は見出しにしたいテキストを設定してください',
+        ]}
+      />
+    </Section>
+
+    <Section>
+      <Heading
+        level={2}
+        text="見出し"
+      />
+
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+    </Section>
+
+    <Section gray={true}>
+      <Heading
+        level={2}
+        text="見出し"
+      />
+
+      <List
+        text={[
+          '引数 level（必須）は見出しレベルを1〜6の数値で設定してください',
+          '引数 text（必須）は見出しにしたいテキストを設定してください',
+        ]}
+      />
+    </Section>
+
+    <Section>
+      <Heading
+        level={2}
+        text="見出し"
+      />
+
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+    </Section>
+  </main>
+</BaseLayout>
+
+<style lang="scss">
+  @use '../../../style/global' as g;
+</style>
+
+<script></script>

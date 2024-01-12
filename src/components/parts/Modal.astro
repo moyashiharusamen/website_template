@@ -1,0 +1,139 @@
+---
+export interface Props {
+  buttonText: Array<string>;
+  headingLevel: number;
+  headingText: Array<string>;
+  bodyText: Array<string>;
+}
+
+const { buttonText, headingLevel, headingText, bodyText } = Astro.props;
+const Heading: any = `h${headingLevel}`;
+const uuid = `Modal_${crypto.randomUUID()}`;
+---
+
+<div class="root modal">
+  <button
+    type="button"
+    class="button modal__button"
+  >
+    {buttonText.map(item => <span>{item}</span>)}
+  </button>
+
+  <dialog
+    class="nav modal__body"
+    aria-labelledby={uuid}
+  >
+    <div class="modal__body__inner">
+      <Heading id={uuid}>
+        {headingText.map(item => <span>{item}</span>)}
+      </Heading>
+
+      {bodyText.map(item => <p>{item}</p>)}
+
+      <a href="__dummy__">ダミーリンク</a>
+      <a href="__dummy__">ダミーリンク</a>
+      <a href="__dummy__">ダミーリンク</a>
+      <a href="__dummy__">ダミーリンク</a>
+
+      <button class="modal__button__close">
+        <span class="modal__button__close__text">閉じる</span>
+      </button>
+    </div>
+  </dialog>
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    margin-top: g.rem(40px);
+  }
+
+  // ---------- モーダルを開くボタン要素 ----------
+  // .button {
+  // }
+
+  // ---------- モーダルを開くボタンが押されたとき ----------
+  // .button[aria-expanded='true'] {
+  // }
+
+  // ---------- モーダル本体要素 ----------
+  .modal__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .modal__body::backdrop {
+    background: none;
+  }
+
+  .modal__body[open] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal__body__inner {
+    width: g.pxToVw(300, 'sp');
+    padding: g.rem(20px) g.rem(30px);
+    background: #fff;
+    opacity: 0;
+    position: relative;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+
+    @include g.mediaQuery() {
+      width: min(g.pxToVw(800, 'pc'), g.rem(800px));
+      padding: g.rem(50px);
+    }
+  }
+
+  .modal__body[aria-hidden='false'] .modal__body__inner {
+    opacity: 1;
+  }
+
+  // ---------- モーダルを閉じるボタン要素 ----------
+  .modal__button__close {
+    width: g.rem(30px);
+    height: g.rem(30px);
+    position: absolute;
+    top: g.rem(-10px);
+    right: 0;
+    transform: translateY(-100%);
+  }
+
+  // 線
+  .modal__button__close::before,
+  .modal__button__close::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    margin: auto;
+    background: #fff;
+    position: absolute;
+    inset: 0;
+  }
+
+  .modal__button__close::before {
+    transform: rotate(45deg);
+  }
+
+  .modal__button__close::after {
+    transform: rotate(-45deg);
+  }
+
+  .modal__button__close__text {
+    @include g.visibilityHidden();
+  }
+</style>

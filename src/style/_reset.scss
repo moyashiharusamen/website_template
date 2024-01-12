@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+@use 'global' as g;
+
+button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+}

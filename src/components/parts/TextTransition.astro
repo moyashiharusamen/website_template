@@ -1,0 +1,19 @@
+---
+export interface Props {
+  text: Array<string>;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="root textTransition">
+  {text.map(item => <p class="textTransition__item">{item}</p>)}
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+  }
+</style>

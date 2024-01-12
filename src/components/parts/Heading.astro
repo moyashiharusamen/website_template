@@ -1,0 +1,74 @@
+---
+export interface Props {
+  level: 1 | 2 | 3 | 4 | 5 | 6;
+  text: string;
+  id?: string;
+  centering?: boolean;
+}
+
+const { level, text, id, centering } = Astro.props;
+const HeadingElement: any = `h${level}`;
+---
+
+<header class:list={['root', `-${HeadingElement}`, { centering }]}>
+  <HeadingElement
+    id={id}
+    class:list="heading"
+  >
+    {text}
+  </HeadingElement>
+</header>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root.centering {
+    @include g.centering();
+  }
+
+  .root.-h1 {
+    margin-top: g.rem(64px);
+    margin-bottom: g.rem(24px);
+  }
+
+  .root.-h2 {
+    margin-top: g.rem(64px);
+    margin-bottom: g.rem(24px);
+  }
+
+  .root.-h3 {
+    margin-top: g.rem(40px);
+    margin-bottom: g.rem(24px);
+  }
+
+  // ---------- 見出し要素 ----------
+  .heading {
+    font-weight: 500;
+    color: g.$base-text-color;
+  }
+
+  .-h1 .heading {
+    font-size: g.rem(32px);
+
+    @include g.mediaQuery() {
+      font-size: g.rem(42px);
+    }
+  }
+
+  .-h2 .heading {
+    font-size: g.rem(26px);
+
+    @include g.mediaQuery() {
+      font-size: g.rem(32px);
+    }
+  }
+
+  .-h3 .heading {
+    font-size: g.rem(22px);
+
+    @include g.mediaQuery() {
+      font-size: g.rem(26px);
+    }
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+export interface Props {
+  buttonText: string;
+  bodyText: Array<string>;
+}
+
+const { buttonText, bodyText } = Astro.props;
+---
+
+<div class="root toggleNew">
+  <details class="item toggleNew__details">
+    <summary class="toggleNew__button">
+      <span class="button">{buttonText}</span>
+    </summary>
+
+    <div class="body toggleNew__body">
+      <div class="body__inner toggleNew__body__inner">
+        {bodyText.map(item => <p set:html={item} />)}
+      </div>
+    </div>
+  </details>
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    width: 100%;
+    margin-top: g.rem(40px);
+    background: #fff;
+  }
+
+  // ---------- トグルを開閉するボタン要素 ----------
+  .button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: g.rem(20px);
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid g.$base-color;
+  }
+
+  // 十字線
+  .button::before,
+  .button::after {
+    content: '';
+    display: block;
+    background: g.$base-color;
+    width: g.rem(15px);
+    height: g.rem(1px);
+    margin: auto;
+    transition: 0.2s transform ease-in-out;
+    position: absolute;
+    top: 0;
+    right: g.rem(20px);
+    bottom: 0;
+
+    @include g.mediaQuery() {
+      width: g.rem(15px);
+      height: g.rem(1px);
+    }
+  }
+
+    // 縦線
+  .button::before {
+    transform: rotate(90deg);
+  }
+
+  // ---------- トグル本体要素が開いているとき ----------
+  .item[open] .button::before {
+    transform: rotate(0);
+  }
+
+  // ---------- トグル本体要素 ----------
+  .body {
+    overflow: hidden;
+  }
+
+  .body__inner {
+    padding: g.rem(20px);
+  }
+</style>

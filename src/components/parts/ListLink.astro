@@ -1,0 +1,68 @@
+---
+interface Link {
+  text: string;
+  href: string;
+}
+
+export interface Props {
+  link: Array<Link>;
+}
+
+const { link } = Astro.props;
+---
+
+<div class="root">
+  <ul class="list">
+    {
+      link.map(item => (
+        <li class="item">
+          <a
+            class="link"
+            href={item.href}
+            set:html={item.text}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    margin-top: g.rem(40px);
+
+    @include g.mediaQuery() {
+    }
+  }
+
+  // ---------- リスト要素 ----------
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+  }
+
+  .item {
+    display: flex;
+  }
+
+  .item::before {
+    content: '';
+    display: block;
+    width: 0.4em;
+    height: 0.4em;
+    margin-top: 0.6em;
+    margin-right: 0.5em;
+    background: g.$base-text-color;
+    border-radius: 50vh;
+  }
+
+  // ---------- リンク要素 ----------
+  .link {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+</style>

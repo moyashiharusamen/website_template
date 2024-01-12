@@ -1,0 +1,48 @@
+---
+import AccordionItem from '../parts/AccordionItem.astro';
+---
+
+<div class="root accordion">
+  <ul>
+    <li>
+      <AccordionItem
+        buttonText="アコーディオンボタン"
+        bodyText={[
+          'テキストテキストテキスト1',
+          'テキストテキストテキスト1',
+          'テキストテキストテキスト1',
+        ]}
+      />
+    </li>
+    <li>
+      <AccordionItem
+        buttonText="アコーディオンボタン"
+        bodyText={[
+          'テキストテキストテキスト2',
+          'テキストテキストテキスト2',
+          'テキストテキストテキスト2',
+        ]}
+      />
+    </li>
+  </ul>
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    margin-top: g.rem(40px);
+  }
+
+  // ---------- リスト要素 ----------
+  .root > ul {
+    display: flex;
+    flex-direction: column;
+    gap: g.rem(20px);
+  }
+
+  .root > ul > li {
+    background: #fff;
+  }
+</style>

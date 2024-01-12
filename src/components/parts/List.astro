@@ -1,0 +1,62 @@
+---
+export interface Props {
+  text: Array<string>;
+}
+
+const { text } = Astro.props;
+const convertLink = (str: string) => {
+  const regexpUrl = /https?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+/g;
+  const regexpMakeLink = (url: string) => {
+    return `<a href="${url}">${url}</a>`;
+  };
+
+  return str.replace(regexpUrl, regexpMakeLink);
+}
+---
+
+<div class="root">
+  <ul class="list">
+    {
+      text.map(item => (
+        <li
+          class="item"
+          set:html={convertLink(item)}
+        />
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    margin-top: g.rem(24px);
+
+    @include g.mediaQuery() {
+    }
+  }
+
+  // ---------- リスト要素 ----------
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+  }
+
+  .item {
+    display: flex;
+  }
+
+  .item::before {
+    content: '';
+    display: block;
+    width: 0.4em;
+    height: 0.4em;
+    margin-top: 0.6em;
+    margin-right: 0.5em;
+    background: g.$base-text-color;
+    border-radius: 50vh;
+  }
+</style>

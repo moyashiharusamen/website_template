@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Section from '@src/components/common/Section.astro';
+import Heading from '@src/components/parts/Heading.astro';
+---
+
+<BaseLayout
+  title="開発用ページ"
+  description="開発用ページ"
+>
+  <main>
+    <Section>
+      <Heading
+        level={1}
+        text="開発用ページ"
+      />
+
+      <ul>
+        <li>
+          <a href="pagelist/">ページリスト</a>
+        </li>
+        <li>
+          <a href="components/">コンポーネントリスト</a>
+        </li>
+        <li>
+          <a href="momentumScrolling/">慣性スクロール</a>
+        </li>
+      </ul>
+    </Section>
+  </main>
+</BaseLayout>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+</style>
+
+<script></script>

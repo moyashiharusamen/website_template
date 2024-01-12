@@ -1,0 +1,77 @@
+---
+import { PAGELIST } from '@src/config';
+
+export interface Props {
+  index: Array<number>;
+}
+
+const { index } = Astro.props;
+
+// ==================================================================
+// 「index で指定された数値」と
+// 「config.ts 内の変数 PAGELIST の id 」とが
+// 合致するページタイトルと URL を表示する
+// ==================================================================
+---
+
+<nav
+  class="root"
+  aria-label="パンくずリスト"
+>
+  <div class="inner">
+    <ul class="list">
+      {
+        index.map((item, i) =>
+          index.length - 1 === i ? (
+            <li aria-current="page">{PAGELIST[Number(item) - 1].pageTitle}</li>
+          ) : (
+            <li>
+              <a href={PAGELIST[Number(item) - 1].url}>{PAGELIST[Number(item) - 1].pageTitle}</a>
+            </li>
+          )
+        )
+      }
+    </ul>
+  </div>
+</nav>
+
+<style lang="scss">
+  @use '../../style/global' as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+  }
+
+  // ---------- インナー要素 ----------
+  .inner {
+    @include g.centering();
+    overflow-x: auto;
+    margin-bottom: g.rem(-20px);
+    padding-bottom: g.rem(20px);
+  }
+
+  // ---------- リスト要素 ----------
+  .list {
+    display: flex;
+    align-items: center;
+  }
+
+  .list > li {
+    display: flex;
+    align-items: center;
+    font-size: g.rem(12px);
+    font-weight: 500;
+    line-height: 1.733742331;
+  }
+
+  .list > li + li {
+    margin-left: 1em;
+
+    // 矢印
+    &::before {
+      content: '>';
+      display: block;
+      margin-right: 1em;
+    }
+  }
+</style>

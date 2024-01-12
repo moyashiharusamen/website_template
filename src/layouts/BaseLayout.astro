@@ -1,0 +1,101 @@
+---
+import '../style/style.scss';
+import { SITE } from '@src/config';
+import Header from '@components/common/Header.astro';
+import Footer from '@components/common/Footer.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  ogImage = SITE.ogImage,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE.urlOrigin);
+const socialImageURL = new URL(ogImage ? ogImage : SITE.ogImage, SITE.urlOrigin).href;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="canonical"
+      href={canonicalURL}
+    />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content={description}
+    />
+    <meta
+      name="format-detection"
+      content="telephone=no"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta
+      property="og:title"
+      content={title}
+    />
+    <meta
+      property="og:description"
+      content={description}
+    />
+    <meta
+      property="og:url"
+      content={canonicalURL}
+    />
+    <meta
+      property="og:image"
+      content={socialImageURL}
+    />
+
+    <!-- Twitter -->
+    <meta
+      property="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      property="twitter:url"
+      content={canonicalURL}
+    />
+    <meta
+      property="twitter:title"
+      content={title}
+    />
+    <meta
+      property="twitter:description"
+      content={description}
+    />
+    <meta
+      property="twitter:image"
+      content={socialImageURL}
+    />
+  </head>
+  <body>
+    <Header />
+
+    <slot />
+
+    <Footer />
+  </body>
+</html>
+
+<script>
+  import '@src/script/main.js';
+</script>

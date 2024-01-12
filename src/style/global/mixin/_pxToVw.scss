@@ -1,0 +1,22 @@
+@charset "utf-8";
+@use 'sass:math';
+@use '../variables' as v;
+
+// ========== px to vw ==========
+// 引数の数値（pxの実数値） を vw に変換して返す
+// 計算式にコンテンツのサイズが必要なので、
+// variables.scss の $content-width と $content-width-pc に
+// 正しい数値を設定することが必要
+@function pxToVw($px, $device: 'sp') {
+  $contentSize: 0;
+
+  @if $device == 'sp' {
+    $contentSize: v.$content-width;
+  } @else if $device == 'pc' {
+    $contentSize: v.$content-width-pc;
+  } @else {
+    $contentSize: v.$content-width;
+  }
+
+  @return math.div($px, $contentSize) * 100vw;
+}

@@ -1,0 +1,97 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Section from '@src/components/common/Section.astro';
+import Heading from '@src/components/parts/Heading.astro';
+import { PAGELIST } from '@src/config';
+---
+
+<BaseLayout
+  title="ページリスト"
+  description="ページリスト"
+>
+  <main>
+    <Section>
+      <Heading
+        level={1}
+        text="ページリスト"
+      />
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>ページ</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {
+            PAGELIST.map(item => (
+              <tr>
+                <td>{item.id}</td>
+                <td>{item.pageTitle}</td>
+                <td>
+                  <a href={`${item.url}`}>{item.url}</a>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </Section>
+  </main>
+</BaseLayout>
+
+<style lang="scss">
+  @use '../../../style/global' as g;
+
+  table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid #333;
+  }
+
+  thead {
+    font-size: 20px;
+
+    @include g.mediaQuery() {
+      font-size: 16px;
+    }
+  }
+
+  tbody {
+    font-size: 16px;
+
+    @include g.mediaQuery() {
+      font-size: 14px;
+    }
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+
+  th {
+    background: g.$base-color;
+    color: #fff;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  a {
+    color: blue;
+  }
+</style>
+
+<script></script>

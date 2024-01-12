@@ -1,0 +1,45 @@
+---
+import '../style/style.scss';
+import { SITE } from '@src/config';
+import Header from '@components/common/Header.astro';
+import Footer from '@components/common/Footer.astro';
+
+const { frontmatter } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE.urlOrigin);
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="canonical"
+      href={canonicalURL}
+    />
+    <title>{frontmatter.title}</title>
+    <meta
+      name="description"
+      content={frontmatter.description}
+    />
+    <meta
+      name="format-detection"
+      content="telephone=no"
+    />
+  </head>
+  <body>
+    <Header />
+
+    <slot />
+
+    <Footer />
+  </body>
+</html>
+
+<script>
+  import '@src/script/main.js';
+</script>
