@@ -22,7 +22,7 @@ const { buttonText, bodyText } = Astro.props;
 </div>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root {
@@ -47,7 +47,7 @@ const { buttonText, bodyText } = Astro.props;
   // 十字線
   .button::before,
   .button::after {
-    content: '';
+    content: "";
     display: block;
     background: g.$base-color;
     width: g.rem(15px);
@@ -59,13 +59,13 @@ const { buttonText, bodyText } = Astro.props;
     right: g.rem(20px);
     bottom: 0;
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       width: g.rem(15px);
       height: g.rem(1px);
     }
   }
 
-    // 縦線
+  // 縦線
   .button::before {
     transform: rotate(90deg);
   }

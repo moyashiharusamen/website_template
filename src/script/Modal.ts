@@ -80,7 +80,7 @@ export default class Modal {
     /**
      * @type {string} モーダルが開いたときに付与される class 属性名
      */
-    this.openClass = '-is-modal-open';
+    this.openClass = 'is-modal-open';
 
     /**
      * @type {number} window の縦軸位置が入る

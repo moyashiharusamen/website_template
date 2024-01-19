@@ -44,7 +44,7 @@ const uuid = `ModalOld_${crypto.randomUUID()}`;
 </div>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root {
@@ -56,7 +56,7 @@ const uuid = `ModalOld_${crypto.randomUUID()}`;
   // }
 
   // ---------- モーダルを開くボタンが押されたとき ----------
-  // .button[aria-expanded='true'] {
+  // .button[aria-expanded="true"] {
   // }
 
   // ---------- モーダル本体要素 ----------
@@ -75,13 +75,13 @@ const uuid = `ModalOld_${crypto.randomUUID()}`;
     transition: opacity 0.4s ease, visibility 0.4s ease;
   }
 
-  .modalOld__body[aria-hidden='false'] {
+  .modalOld__body[aria-hidden="false"] {
     visibility: visible;
     opacity: 1;
   }
 
   .modalOld__body__inner {
-    width: g.pxToVw(300, 'sp');
+    width: g.pxToVw(300, "sp");
     padding: g.rem(20px) g.rem(30px);
     background: #fff;
     opacity: 0;
@@ -89,13 +89,13 @@ const uuid = `ModalOld_${crypto.randomUUID()}`;
     z-index: 100;
     transition: opacity 0.3s ease;
 
-    @include g.mediaQuery() {
-      width: min(g.pxToVw(800, 'pc'), g.rem(800px));
+    @include g.mediaQuery {
+      width: min(g.pxToVw(800, "pc"), g.rem(800px));
       padding: g.rem(50px);
     }
   }
 
-  .modalOld__body[aria-hidden='false'] .modalOld__body__inner {
+  .modalOld__body[aria-hidden="false"] .modalOld__body__inner {
     opacity: 1;
   }
 
@@ -112,7 +112,7 @@ const uuid = `ModalOld_${crypto.randomUUID()}`;
   // 線
   .modalOld__button__close::before,
   .modalOld__button__close::after {
-    content: '';
+    content: "";
     display: block;
     width: 30px;
     height: 1px;
@@ -131,6 +131,6 @@ const uuid = `ModalOld_${crypto.randomUUID()}`;
   }
 
   .modalOld__button__close__text {
-    @include g.visibilityHidden();
+    @include g.visibilityHidden;
   }
 </style>

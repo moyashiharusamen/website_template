@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Section from '@src/components/common/Section.astro';
-import Heading from '@src/components/parts/Heading.astro';
-import { PAGELIST } from '@src/config';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Section from "@src/components/common/Section.astro";
+import Heading from "@src/components/parts/Heading.astro";
+import { PAGELIST } from "@src/config";
 ---
 
 <BaseLayout
@@ -44,7 +44,7 @@ import { PAGELIST } from '@src/config';
 </BaseLayout>
 
 <style lang="scss">
-  @use '../../../style/global' as g;
+  @use "../../../style/global" as g;
 
   table {
     width: 100%;
@@ -62,7 +62,7 @@ import { PAGELIST } from '@src/config';
   thead {
     font-size: 20px;
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       font-size: 16px;
     }
   }
@@ -70,7 +70,7 @@ import { PAGELIST } from '@src/config';
   tbody {
     font-size: 16px;
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       font-size: 14px;
     }
   }

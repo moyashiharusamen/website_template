@@ -10,7 +10,7 @@ const { level, text, id, centering } = Astro.props;
 const HeadingElement: any = `h${level}`;
 ---
 
-<header class:list={['root', `-${HeadingElement}`, { centering }]}>
+<header class:list={["root", `-${HeadingElement}`, { centering }]}>
   <HeadingElement
     id={id}
     class:list="heading"
@@ -20,11 +20,11 @@ const HeadingElement: any = `h${level}`;
 </header>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root.centering {
-    @include g.centering();
+    @include g.centering;
   }
 
   .root.-h1 {
@@ -51,7 +51,7 @@ const HeadingElement: any = `h${level}`;
   .-h1 .heading {
     font-size: g.rem(32px);
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       font-size: g.rem(42px);
     }
   }
@@ -59,7 +59,7 @@ const HeadingElement: any = `h${level}`;
   .-h2 .heading {
     font-size: g.rem(26px);
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       font-size: g.rem(32px);
     }
   }
@@ -67,7 +67,7 @@ const HeadingElement: any = `h${level}`;
   .-h3 .heading {
     font-size: g.rem(22px);
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       font-size: g.rem(26px);
     }
   }

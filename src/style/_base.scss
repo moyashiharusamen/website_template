@@ -1,10 +1,8 @@
 @charset "utf-8";
+@use "global" as g;
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap";
 
-@use 'global' as g;
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
-
-:root:not(.useLenis) {
+:root:not(.lenis) {
   scroll-behavior: smooth;
 }
 
@@ -18,23 +16,23 @@
 body {
   display: flex;
   flex-direction: column;
+  font-family: "Noto Sans JP", sans-serif;
   background: #fff;
-  font-family: 'Noto Sans JP', sans-serif;
   font-size: g.rem(g.$font-size);
   font-weight: 400;
-  color: g.$base-text-color;
   line-height: 1.6;
+  color: g.$base-text-color;
 
-  @include g.mediaQuery() {
+  @include g.mediaQuery {
     font-size: g.rem(g.$font-size-pc);
   }
 }
 
-body.-is-modal-open {
+body.is-modal-open {
   width: 100%;
-  overflow-y: hidden;
   position: fixed;
   left: 0;
+  overflow-y: hidden;
 }
 
 main {
@@ -61,8 +59,6 @@ dialog {
   background: transparent;
   border: none;
 }
-
-
 
 // Lenis 用のスタイル
 html.lenis {

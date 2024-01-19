@@ -5,17 +5,17 @@ export interface Props {
 }
 
 const { htmlELement, gray } = Astro.props;
-const SectionElement = htmlELement ? htmlELement : 'section';
+const SectionElement = htmlELement ? htmlELement : "section";
 ---
 
-<SectionElement class:list={['root', { gray }]}>
+<SectionElement class:list={["root", { gray }]}>
   <div class="section__inner">
     <slot />
   </div>
 </SectionElement>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root {
@@ -28,6 +28,6 @@ const SectionElement = htmlELement ? htmlELement : 'section';
 
   // ---------- 基底要素のインナー要素 ----------
   .section__inner {
-    @include g.centering();
+    @include g.centering;
   }
 </style>

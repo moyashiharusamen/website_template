@@ -1,9 +1,9 @@
 // ---------- 基本設定 ----------
-@use 'base';
-@use 'reset';
+@use "base";
+@use "reset";
 
 // ---------- リセット ----------
-@import '@acab/reset.css';
+@import "@acab/reset.css";
 
 // ---------- コンポーネント ----------
-@import 'components';
+@import "components";

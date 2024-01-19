@@ -1,7 +1,7 @@
 ---
-import { SITE } from '@src/config';
-import '@splidejs/splide/css';
-import Heading from './Heading.astro';
+import { SITE } from "@src/config";
+import "@splidejs/splide/css";
+import Heading from "./Heading.astro";
 const { rootPath } = SITE;
 
 const uuid = `carousel_${crypto.randomUUID()}`;
@@ -52,15 +52,15 @@ const uuid = `carousel_${crypto.randomUUID()}`;
 </div>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
-  .root {
-  }
+  // .root {
+  // }
 
   // ---------- 基底要素のインナー要素 ----------
-  .inner {
-  }
+  // .inner {
+  // }
 
   .splide__slide {
     display: flex;

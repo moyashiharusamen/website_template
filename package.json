@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "stylelint": "stylelint **/*.scss",
-    "stylelint:fix": "stylelint --fix .scss",
+    "stylelint": "stylelint '**/*{scss,astro}' --ignore-path .gitignore",
+    "stylelint:fix": "stylelint --fix '**/*{scss,astro}' --ignore-path .gitignore",
     "eslint": "eslint --ext .ts --ignore-path .gitignore .",
-    "eslint:fix": "eslint --fix --ext .ts,.astro --ignore-path .gitignore .",
+    "eslint:fix": "eslint --fix --ext .ts --ignore-path .gitignore .",
     "markuplint": "markuplint \"**/*.astro\"",
     "prettier:write": "npm run prettier:write:ts && npm run prettier:write:astro && npm run prettier:write:scss",
     "prettier:write:ts": "prettier --write 'src/**/*.ts'",
@@ -46,12 +46,12 @@
     "html2canvas": "^1.4.1",
     "lodash": "^4.17.21",
     "markuplint": "^3.5.0",
+    "postcss-html": "^1.6.0",
     "postcss-preset-env": "^8.2.0",
     "prettier": "^2.8.7",
     "prettier-plugin-astro": "^0.12.2",
     "sass": "^1.60.0",
     "stylelint": "^14.16.1",
-    "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-recess-order": "^3.1.0",
     "stylelint-config-standard-scss": "^6.1.0"
   }

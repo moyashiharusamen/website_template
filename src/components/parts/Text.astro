@@ -11,14 +11,14 @@ const { text } = Astro.props;
 </div>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root {
     margin-top: 1.5em;
     font-size: g.rem(14px);
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       font-size: g.rem(16px);
     }
   }

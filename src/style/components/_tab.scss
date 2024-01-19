@@ -1,6 +1,5 @@
 @charset "utf-8";
-
-@use '../global' as g;
+@use "../global" as g;
 
 .tab {
   @at-root {
@@ -15,17 +14,17 @@
     // .tab__button {
     // }
 
-    // .tab__button[aria-selected='true'] {
+    // .tab__button[aria-selected="true"] {
     // }
 
-    // .tab__button[aria-selected='true'] .tab__button__inner {
+    // .tab__button[aria-selected="true"] .tab__button__inner {
     // }
 
     // ---------- タブ本体部分 ----------
     // .tab__body {
     // }
 
-    .tab__body[aria-hidden='true'] {
+    .tab__body[aria-hidden="true"] {
       display: none;
       margin: 0;
       padding: 0;

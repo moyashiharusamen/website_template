@@ -28,14 +28,11 @@ const convertLink = (str: string) => {
 </div>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root {
     margin-top: g.rem(24px);
-
-    @include g.mediaQuery() {
-    }
   }
 
   // ---------- リスト要素 ----------
@@ -50,7 +47,7 @@ const convertLink = (str: string) => {
   }
 
   .item::before {
-    content: '';
+    content: "";
     display: block;
     width: 0.4em;
     height: 0.4em;

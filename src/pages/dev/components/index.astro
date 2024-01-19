@@ -1,20 +1,20 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Section from '@src/components/common/Section.astro';
-import Heading from '@src/components/parts/Heading.astro';
-import Carousel from '@src/components/parts/Carousel.astro';
-import Text from '@src/components/parts/Text.astro';
-import MediaImage from '@src/components/parts/MediaImage.astro';
-import LinkButton from '@src/components/parts/LinkButton.astro';
-import Toggle from '@src/components/parts/Toggle.astro';
-import ToggleNew from '@src/components/parts/ToggleNew.astro';
-import Modal from '@src/components/parts/Modal.astro';
-import ModalOld from '@src/components/parts/ModalOld.astro';
-import Accordion from '@src/components/templates/Accordion.astro';
-import Tab from '@src/components/parts/Tab.astro';
-import List from '@src/components/parts/List.astro';
-import ListLink from '@src/components/parts/ListLink.astro';
-import TextTransition from '@src/components/parts/TextTransition.astro';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Section from "@src/components/common/Section.astro";
+import Heading from "@src/components/parts/Heading.astro";
+import Carousel from "@src/components/parts/Carousel.astro";
+import Text from "@src/components/parts/Text.astro";
+import MediaImage from "@src/components/parts/MediaImage.astro";
+import LinkButton from "@src/components/parts/LinkButton.astro";
+import Toggle from "@src/components/parts/Toggle.astro";
+import ToggleNew from "@src/components/parts/ToggleNew.astro";
+import Modal from "@src/components/parts/Modal.astro";
+import ModalOld from "@src/components/parts/ModalOld.astro";
+import Accordion from "@src/components/templates/Accordion.astro";
+import Tab from "@src/components/parts/Tab.astro";
+import List from "@src/components/parts/List.astro";
+import ListLink from "@src/components/parts/ListLink.astro";
+import TextTransition from "@src/components/parts/TextTransition.astro";
 ---
 
 <BaseLayout
@@ -41,8 +41,8 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          '引数 level（必須）は見出しレベルを1〜6の数値で設定してください',
-          '引数 text（必須）は見出しにしたいテキストを設定してください',
+          "引数 level（必須）は見出しレベルを1〜6の数値で設定してください",
+          "引数 text（必須）は見出しにしたいテキストを設定してください",
         ]}
       />
     </Section>
@@ -53,8 +53,8 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
         text="Text コンポーネント"
       />
 
-      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
-      <Text text={['テキストテキストテキスト', 'テキストテキスト<sup>※</sup>テキストテキスト']} />
+      <Text text={["テキストテキストテキスト", "テキストテキスト<sup>※</sup>テキストテキスト"]} />
+      <Text text={["テキストテキストテキスト", "テキストテキスト<sup>※</sup>テキストテキスト"]} />
 
       <Heading
         level={3}
@@ -63,12 +63,12 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          '引数 text（必須）は配列の要素ごとに p 要素が生成されます',
-          '改行したいときは配列の要素ごとに設定してください',
-          'Text コンポーネント内の p 要素同士には上下余白はありません',
-          '上下余白を設定したい場合は Text コンポーネントを複数使用してください',
-          '配列内で HTML 要素を記述すると、 HTML 要素として出力されます',
-          '上記方法で出力された HTML 要素はコンポーネントファイル内で CSS の設定ができません',
+          "引数 text（必須）は配列の要素ごとに p 要素が生成されます",
+          "改行したいときは配列の要素ごとに設定してください",
+          "Text コンポーネント内の p 要素同士には上下余白はありません",
+          "上下余白を設定したい場合は Text コンポーネントを複数使用してください",
+          "配列内で HTML 要素を記述すると、 HTML 要素として出力されます",
+          "上記方法で出力された HTML 要素はコンポーネントファイル内で CSS の設定ができません",
         ]}
       />
     </Section>
@@ -97,11 +97,11 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          '引数 text（必須）は表示するリンクのテキストを設定します',
-          '引数 href（必須）はリンク先の URL を設定します',
-          '引数 blank（任意）を true 指定すると、 a 要素に target="_blank" が設定されます',
-          '配列内で HTML 要素を記述すると、 HTML 要素として出力されます',
-          '上記方法で出力された HTML 要素はコンポーネントファイル内で CSS の設定ができません',
+          "引数 text（必須）は表示するリンクのテキストを設定します",
+          "引数 href（必須）はリンク先の URL を設定します",
+          "引数 blank（任意）を true 指定すると、 a 要素に target='_blank' が設定されます",
+          "配列内で HTML 要素を記述すると、 HTML 要素として出力されます",
+          "上記方法で出力された HTML 要素はコンポーネントファイル内で CSS の設定ができません",
         ]}
       />
     </Section>
@@ -127,13 +127,13 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          '引数 imgSrc（必須）は画像の src 属性の値を設定します',
-          '引数 alt（必須）は img 要素の alt 属性の値を設定します',
-          '引数 width（必須）は img 要素の width 属性の値を設定します',
-          '引数 height（必須）は img 要素の height 属性の値を設定します',
-          '引数の width と height はレイアウトシフト対策として必ず設定してください',
-          '引数 async（任意）は true を設定すると img 要素に decoding="async" を設定します',
-          '引数の async は基本的には true にしてください、ただしファーストビューに入るので対象の画像をチラつかせたくないなどの理由がある場合は false に設定、または未記入で対応してください',
+          "引数 imgSrc（必須）は画像の src 属性の値を設定します",
+          "引数 alt（必須）は img 要素の alt 属性の値を設定します",
+          "引数 width（必須）は img 要素の width 属性の値を設定します",
+          "引数 height（必須）は img 要素の height 属性の値を設定します",
+          "引数の width と height はレイアウトシフト対策として必ず設定してください",
+          "引数 async（任意）は true を設定すると img 要素に decoding='async' を設定します",
+          "引数の async は基本的には true にしてください、ただしファーストビューに入るので対象の画像をチラつかせたくないなどの理由がある場合は false に設定、または未記入で対応してください",
         ]}
       />
     </Section>
@@ -144,7 +144,7 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
         text="List コンポーネント"
       />
 
-      <List text={['リストリストリストリスト', 'リストリスト']} />
+      <List text={["リストリストリストリスト", "リストリスト"]} />
 
       <Heading
         level={3}
@@ -153,9 +153,9 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          '引数 text（必須）は配列の要素ごとに li 要素が生成されます',
-          '配列内で HTML 要素を記述すると、 HTML 要素として出力されます',
-          '上記方法で出力された HTML 要素はコンポーネントファイル内で CSS の設定ができません',
+          "引数 text（必須）は配列の要素ごとに li 要素が生成されます",
+          "配列内で HTML 要素を記述すると、 HTML 要素として出力されます",
+          "上記方法で出力された HTML 要素はコンポーネントファイル内で CSS の設定ができません",
         ]}
       />
     </Section>
@@ -169,12 +169,12 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
       <ListLink
         link={[
           {
-            text: 'リストリンク1',
-            href: '/__dummy__/',
+            text: "リストリンク1",
+            href: "/__dummy__/",
           },
           {
-            text: 'リストリンク2',
-            href: '/__dummy__/',
+            text: "リストリンク2",
+            href: "/__dummy__/",
           },
         ]}
       />
@@ -186,11 +186,11 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          '引数 link（必須）は配列内のオブジェクトごとに li 要素が生成されます',
-          'text キー（必須）は表示するリンクのテキストを設定します',
-          'href キー（必須）はリンク先の URL を設定します',
-          '配列内で HTML 要素を記述すると、 HTML 要素として出力されます',
-          '上記方法で出力された HTML 要素はコンポーネントファイル内で CSS の設定ができません',
+          "引数 link（必須）は配列内のオブジェクトごとに li 要素が生成されます",
+          "text キー（必須）は表示するリンクのテキストを設定します",
+          "href キー（必須）はリンク先の URL を設定します",
+          "配列内で HTML 要素を記述すると、 HTML 要素として出力されます",
+          "上記方法で出力された HTML 要素はコンポーネントファイル内で CSS の設定ができません",
         ]}
       />
     </Section>
@@ -203,12 +203,12 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <Toggle
         buttonText="トグルボタン"
-        bodyText={['テキストテキストテキスト', 'テキストテキスト']}
+        bodyText={["テキストテキストテキスト", "テキストテキスト"]}
       />
 
       <Toggle
         buttonText="トグルボタン"
-        bodyText={['テキストテキストテキスト', 'テキストテキスト']}
+        bodyText={["テキストテキストテキスト", "テキストテキスト"]}
       />
 
       <Heading
@@ -218,9 +218,9 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          'トグル機能を制御するコンポーネントです',
-          '引数 buttonText（必須）はトグルを開閉するボタンに表示するテキストを設定します',
-          '引数 bodyText（必須）はトグルで開閉される要素に表示するテキストを設定します',
+          "トグル機能を制御するコンポーネントです",
+          "引数 buttonText（必須）はトグルを開閉するボタンに表示するテキストを設定します",
+          "引数 bodyText（必須）はトグルで開閉される要素に表示するテキストを設定します",
         ]}
       />
     </Section>
@@ -233,12 +233,12 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <ToggleNew
         buttonText="トグルボタン"
-        bodyText={['テキストテキストテキスト', 'テキストテキスト']}
+        bodyText={["テキストテキストテキスト", "テキストテキスト"]}
       />
 
       <ToggleNew
         buttonText="トグルボタン"
-        bodyText={['テキストテキストテキスト', 'テキストテキスト']}
+        bodyText={["テキストテキストテキスト", "テキストテキスト"]}
       />
 
       <Heading
@@ -248,10 +248,10 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          'トグル機能を制御するコンポーネントです',
-          '引数 buttonText（必須）はトグルを開閉するボタンに表示するテキストを設定します',
-          '引数 bodyText（必須）はトグルで開閉される要素に表示するテキストを設定します',
-          'Toggle コンポーネントとは使用している HTML 要素が異なり、details 要素、 summary 要素を使用しています',
+          "トグル機能を制御するコンポーネントです",
+          "引数 buttonText（必須）はトグルを開閉するボタンに表示するテキストを設定します",
+          "引数 bodyText（必須）はトグルで開閉される要素に表示するテキストを設定します",
+          "Toggle コンポーネントとは使用している HTML 要素が異なり、details 要素、 summary 要素を使用しています",
         ]}
       />
     </Section>
@@ -271,9 +271,9 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          'アコーディオン機能を制御するコンポーネントです',
-          'AccordionItem の引数 buttonText（必須）は各トグルを開閉するボタンに表示するテキストを設定します',
-          'AccordionItem の引数 bodyText（必須）は各トグルで開閉される要素に表示するテキストを設定します',
+          "アコーディオン機能を制御するコンポーネントです",
+          "AccordionItem の引数 buttonText（必須）は各トグルを開閉するボタンに表示するテキストを設定します",
+          "AccordionItem の引数 bodyText（必須）は各トグルで開閉される要素に表示するテキストを設定します",
         ]}
       />
     </Section>
@@ -285,13 +285,13 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
       />
 
       <Modal
-        buttonText={['モーダルボタン']}
+        buttonText={["モーダルボタン"]}
         headingLevel={2}
-        headingText={['モーダル見出し']}
+        headingText={["モーダル見出し"]}
         bodyText={[
-          'テキストテキストテキスト',
-          'テキストテキストテキスト',
-          'テキストテキストテキスト',
+          "テキストテキストテキスト",
+          "テキストテキストテキスト",
+          "テキストテキストテキスト",
         ]}
       />
 
@@ -302,11 +302,11 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          'モーダル機能を制御するコンポーネントです',
-          '引数 buttonText（必須）はモーダルを開閉するボタンに表示するテキストを設定します',
-          '引数 headingLevel（必須）はモーダル内に設置する見出し要素のレベルを設定します',
-          '引数 headingText（必須）は見出しに表示するテキストを設定します',
-          '引数 bodyText（必須）はモーダルで開閉される要素に表示するテキストを設定します',
+          "モーダル機能を制御するコンポーネントです",
+          "引数 buttonText（必須）はモーダルを開閉するボタンに表示するテキストを設定します",
+          "引数 headingLevel（必須）はモーダル内に設置する見出し要素のレベルを設定します",
+          "引数 headingText（必須）は見出しに表示するテキストを設定します",
+          "引数 bodyText（必須）はモーダルで開閉される要素に表示するテキストを設定します",
         ]}
       />
     </Section>
@@ -318,13 +318,13 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
       />
 
       <ModalOld
-        buttonText={['旧モーダルボタン']}
+        buttonText={["旧モーダルボタン"]}
         headingLevel={2}
-        headingText={['旧モーダル見出し']}
+        headingText={["旧モーダル見出し"]}
         bodyText={[
-          'テキストテキストテキスト',
-          'テキストテキストテキスト',
-          'テキストテキストテキスト',
+          "テキストテキストテキスト",
+          "テキストテキストテキスト",
+          "テキストテキストテキスト",
         ]}
       />
 
@@ -335,12 +335,12 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          'モーダル機能を制御するコンポーネントです',
-          'dialog 要素を使用しないモーダルコンポーネントです',
-          '引数 buttonText（必須）はモーダルを開閉するボタンに表示するテキストを設定します',
-          '引数 headingLevel（必須）はモーダル内に設置する見出し要素のレベルを設定します',
-          '引数 headingText（必須）は見出しに表示するテキストを設定します',
-          '引数 bodyText（必須）はモーダルで開閉される要素に表示するテキストを設定します',
+          "モーダル機能を制御するコンポーネントです",
+          "dialog 要素を使用しないモーダルコンポーネントです",
+          "引数 buttonText（必須）はモーダルを開閉するボタンに表示するテキストを設定します",
+          "引数 headingLevel（必須）はモーダル内に設置する見出し要素のレベルを設定します",
+          "引数 headingText（必須）は見出しに表示するテキストを設定します",
+          "引数 bodyText（必須）はモーダルで開閉される要素に表示するテキストを設定します",
         ]}
       />
     </Section>
@@ -360,9 +360,9 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          'タブ機能を制御するコンポーネントです',
-          'デフォルトで表示したいタブの aria-hidden を false に設定',
-          'false に設定できるのは .tab__body の中で1つのみ',
+          "タブ機能を制御するコンポーネントです",
+          "デフォルトで表示したいタブの aria-hidden を false に設定",
+          "false に設定できるのは .tab__body の中で1つのみ",
         ]}
       />
     </Section>
@@ -374,7 +374,7 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
       />
 
       <TextTransition
-        text={['テキストテキストテキスト', 'テキストテキストテキスト', 'テキストテキストテキスト']}
+        text={["テキストテキストテキスト", "テキストテキストテキスト", "テキストテキストテキスト"]}
       />
 
       <Heading
@@ -384,9 +384,9 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          'テキストの色が左から右へ遷移する機能を制御するコンポーネントです',
-          '引数 text （必須）は配列1つ毎に p 要素が生成されます',
-          '上記で生成された p 要素毎（1行毎）に文字色が遷移します',
+          "テキストの色が左から右へ遷移する機能を制御するコンポーネントです",
+          "引数 text （必須）は配列1つ毎に p 要素が生成されます",
+          "上記で生成された p 要素毎（1行毎）に文字色が遷移します",
         ]}
       />
     </Section>
@@ -406,10 +406,10 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 
       <List
         text={[
-          'ライブラリのsplide.js（https://ja.splidejs.com/）を使用しています',
-          '以下2つの処理のうちどちらかを行う必要がある',
-          'カルーセルのルート要素に aria-label で簡易的なラベルを設定する',
-          'カルーセルに対して適切な見出し要素がある場合は、 aria-labelledby で両者を関連付ける',
+          "ライブラリのsplide.js（https://ja.splidejs.com/）を使用しています",
+          "以下2つの処理のうちどちらかを行う必要がある",
+          "カルーセルのルート要素に aria-label で簡易的なラベルを設定する",
+          "カルーセルに対して適切な見出し要素がある場合は、 aria-labelledby で両者を関連付ける",
         ]}
       />
     </Section>
@@ -417,7 +417,7 @@ import TextTransition from '@src/components/parts/TextTransition.astro';
 </BaseLayout>
 
 <style lang="scss">
-  @use '../../../style/global' as g;
+  @use "../../../style/global" as g;
 </style>
 
 <script></script>

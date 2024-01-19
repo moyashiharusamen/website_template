@@ -30,7 +30,7 @@ const { buttonText, bodyText } = Astro.props;
 </div>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root {
@@ -41,19 +41,18 @@ const { buttonText, bodyText } = Astro.props;
   }
 
   // ---------- 基底要素のインナー要素 ----------
-  .inner {
-  }
+  // .inner {
+  // }
 
   // ---------- トグルを開閉するボタン要素 ----------
   .button {
     width: 100%;
     display: flex;
     align-items: center;
-    width: 100%;
     padding: g.rem(20px);
     position: relative;
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       transform: translateX(g.rem(-4px)) translateZ(0);
     }
   }
@@ -70,7 +69,7 @@ const { buttonText, bodyText } = Astro.props;
     right: g.rem(20px);
     bottom: 0;
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       width: g.rem(35px);
       height: g.rem(35px);
     }
@@ -78,7 +77,7 @@ const { buttonText, bodyText } = Astro.props;
     // 十字線
     &::before,
     &::after {
-      content: '';
+      content: "";
       display: block;
       background: g.$base-color;
       width: g.rem(15px);
@@ -88,7 +87,7 @@ const { buttonText, bodyText } = Astro.props;
       position: absolute;
       inset: 0;
 
-      @include g.mediaQuery() {
+      @include g.mediaQuery {
         width: g.rem(15px);
         height: g.rem(1px);
       }
@@ -101,7 +100,7 @@ const { buttonText, bodyText } = Astro.props;
   }
 
   // ---------- トグル本体要素が開いているとき ----------
-  .button[aria-expanded='true'] {
+  .button[aria-expanded="true"] {
     .button__mark::before {
       transform: rotate(0);
     }
@@ -112,6 +111,6 @@ const { buttonText, bodyText } = Astro.props;
     padding: 0 g.rem(20px) g.rem(20px);
   }
 
-  .body__inner {
-  }
+  // .body__inner {
+  // }
 </style>

@@ -12,13 +12,13 @@ const { text, href, blank } = Astro.props;
   <a
     class="link"
     href={`${href}`}
-    target={`${blank ? '_blank' : ''}`}
+    target={`${blank ? "_blank" : ""}`}
     set:html={text}
   />
 </div>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root {
@@ -26,14 +26,14 @@ const { text, href, blank } = Astro.props;
     justify-content: center;
     margin-top: g.rem(40px);
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       margin-top: g.rem(60px);
     }
 
     & + .root {
       margin-top: g.rem(20px);
 
-      @include g.mediaQuery() {
+      @include g.mediaQuery {
         margin-top: g.rem(30px);
       }
     }
@@ -58,7 +58,7 @@ const { text, href, blank } = Astro.props;
     transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
     position: relative;
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       min-width: g.rem(400px);
       min-height: g.rem(60px);
       padding: g.rem(10px) g.rem(60px);
@@ -67,7 +67,7 @@ const { text, href, blank } = Astro.props;
 
     // 矢印
     &::after {
-      content: '';
+      content: "";
       display: block;
       width: g.rem(14px);
       height: g.rem(14px);
@@ -82,7 +82,7 @@ const { text, href, blank } = Astro.props;
       transition: border 0.2s ease-in-out;
     }
 
-    @include g.hover() {
+    @include g.hover {
       background: #fff;
       color: g.$base-color;
 

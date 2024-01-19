@@ -17,12 +17,12 @@ const { imgSrc, alt, width, height, async } = Astro.props;
     alt={`${alt}`}
     width={`${width}`}
     height={`${height}`}
-    decoding={async ? 'async' : 'sync'}
+    decoding={async ? "async" : "sync"}
   />
 </div>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
   .root {
@@ -30,12 +30,12 @@ const { imgSrc, alt, width, height, async } = Astro.props;
     display: flex;
     justify-content: center;
 
-    @include g.mediaQuery() {
+    @include g.mediaQuery {
       margin-top: g.rem(40px);
     }
   }
 
   // ---------- 画像要素 ----------
-  .img {
-  }
+  // .img {
+  // }
 </style>

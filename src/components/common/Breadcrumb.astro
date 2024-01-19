@@ -1,5 +1,5 @@
 ---
-import { PAGELIST } from '@src/config';
+import { PAGELIST } from "@src/config";
 
 export interface Props {
   index: Array<number>;
@@ -36,15 +36,16 @@ const { index } = Astro.props;
 </nav>
 
 <style lang="scss">
-  @use '../../style/global' as g;
+  @use "../../style/global" as g;
 
   // ---------- 基底要素 ----------
-  .root {
-  }
+  // .root {
+  // }
 
   // ---------- インナー要素 ----------
   .inner {
-    @include g.centering();
+    @include g.centering;
+
     overflow-x: auto;
     margin-bottom: g.rem(-20px);
     padding-bottom: g.rem(20px);
@@ -61,7 +62,7 @@ const { index } = Astro.props;
     align-items: center;
     font-size: g.rem(12px);
     font-weight: 500;
-    line-height: 1.733742331;
+    line-height: 1.7337;
   }
 
   .list > li + li {
@@ -69,7 +70,7 @@ const { index } = Astro.props;
 
     // 矢印
     &::before {
-      content: '>';
+      content: ">";
       display: block;
       margin-right: 1em;
     }

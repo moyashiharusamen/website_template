@@ -1,6 +1,5 @@
 @charset "utf-8";
-
-@use '../global' as g;
+@use "../global" as g;
 
 .section {
   @at-root {
@@ -10,7 +9,7 @@
 
     // ---------- インナー要素 ----------
     .section__inner {
-      @include g.resetMargin();
+      @include g.resetMargin;
     }
   }
 }

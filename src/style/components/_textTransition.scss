@@ -1,18 +1,18 @@
 @charset "utf-8";
-
-@use '../global' as g;
+@use "../global" as g;
 
 .textTransition {
   @at-root {
     // ---------- 基底要素 ----------
     .textTransition__item {
-      background-image: linear-gradient(
-        100deg,
-        g.$base-text-color 0%,
-        g.$base-text-color 45%,
-        #fff 55%,
-        #fff 100%
-      );
+      background-image:
+        linear-gradient(
+          100deg,
+          g.$base-text-color 0%,
+          g.$base-text-color 45%,
+          #fff 55%,
+          #fff 100%
+        );
       background-size: 230% 100%;
       background-position: 100% 0;
       background-repeat: no-repeat;

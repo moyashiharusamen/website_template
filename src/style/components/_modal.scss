@@ -1,6 +1,5 @@
 @charset "utf-8";
-
-@use '../global' as g;
+@use "../global" as g;
 
 .modal {
   @at-root {
@@ -12,7 +11,7 @@
     // .modal__openButton {}
 
     // .modal__button__text {
-    //   @include g.visibilityHidden();
+    //   @include g.visibilityHidden;
     // }
 
     // ---------- 本体部分 ----------
@@ -24,7 +23,7 @@
     // ---------- 透過背景 ----------
     .modal__overlay,
     .modalOld__overlay {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0 0 0 / 0.8);
       position: fixed;
       top: 0;
       right: 0;
