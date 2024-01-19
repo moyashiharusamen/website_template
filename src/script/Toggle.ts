@@ -12,7 +12,7 @@ export default class Toggle extends Events {
   base: HTMLElement;
   body: HTMLElement;
   button: HTMLElement;
-  buttonMark: HTMLElement;
+  buttonText: HTMLElement;
 
   /**
    * @property {string} ブロック名
@@ -54,9 +54,9 @@ export default class Toggle extends Events {
     this.button = <HTMLElement>base.querySelector(`.${baseName}__button`);
 
     /**
-     * @type {HTMLElement} ボタン内にあるマーク部分要素
+     * @type {HTMLElement} ボタン内にあるテキスト部分要素
      */
-    this.buttonMark = <HTMLElement>base.querySelector(`.${baseName}__button__mark`);
+    this.buttonText = <HTMLElement>base.querySelector(`.${baseName}__button__text`);
 
     /**
      * @type {string} ユニークな ID
@@ -105,7 +105,7 @@ export default class Toggle extends Events {
   close() {
     this.body.setAttribute('aria-hidden', 'true');
     this.button.setAttribute('aria-expanded', 'false');
-    this.buttonMark.textContent = '開く';
+    this.buttonText.textContent = '開く';
   }
 
   /**
@@ -134,7 +134,7 @@ export default class Toggle extends Events {
     if (isBoolean(isOpened)) {
       this.body.setAttribute('aria-hidden', `${!isOpened}`);
       this.button.setAttribute('aria-expanded', `${isOpened}`);
-      this.buttonMark.textContent = isOpened ? '閉じる' : '開く';
+      this.buttonText.textContent = isOpened ? '閉じる' : '開く';
     }
   }
 }

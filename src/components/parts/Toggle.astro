@@ -11,15 +11,15 @@ const { buttonText, bodyText } = Astro.props;
   <div class="inner">
     <button
       type="button"
-      class="button toggle__button"
+      class="toggle__button"
     >
       {buttonText}
 
-      <span class="button__mark"><span class="toggle__button__mark">開く</span></span>
+      <span class="button__mark"><span class="toggle__button__text">開く</span></span>
     </button>
 
     <div
-      class="body toggle__body"
+      class="toggle__body"
       aria-hidden="true"
     >
       <div class="body__inner">
@@ -45,7 +45,7 @@ const { buttonText, bodyText } = Astro.props;
   // }
 
   // ---------- トグルを開閉するボタン要素 ----------
-  .button {
+  .toggle__button {
     width: 100%;
     display: flex;
     align-items: center;
@@ -54,6 +54,13 @@ const { buttonText, bodyText } = Astro.props;
 
     @include g.mediaQuery {
       transform: translateX(g.rem(-4px)) translateZ(0);
+    }
+  }
+
+  // ---------- トグル本体要素が開いているとき ----------
+  .toggle__button[aria-expanded="true"] {
+    .button__mark::before {
+      transform: rotate(0);
     }
   }
 
@@ -99,18 +106,39 @@ const { buttonText, bodyText } = Astro.props;
     }
   }
 
-  // ---------- トグル本体要素が開いているとき ----------
-  .button[aria-expanded="true"] {
-    .button__mark::before {
-      transform: rotate(0);
-    }
+  // ---------- トグルボタン内のテキスト要素 ----------
+  .toggle__button__text {
+    @include g.visibilityHidden;
   }
 
   // ---------- トグル本体要素 ----------
-  .body {
+  .toggle__body {
     padding: 0 g.rem(20px) g.rem(20px);
+    visibility: visible;
+    opacity: 1;
+    transition:
+      opacity 0.3s g.$easing,
+      visibility 0.3s g.$easing,
+      margin-top 0.3s g.$easing,
+      padding-top 0.3s g.$easing,
+      padding-bottom 0.3s g.$easing;
+    will-change: margin-top, padding-top, padding-bottom;
   }
 
-  // .body__inner {
-  // }
+  // ---------- トグルの本体が閉じているとき ----------
+  .toggle__body[aria-hidden="true"] {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+
+    * {
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+    }
+  }
 </style>
