@@ -12,13 +12,13 @@
       class="tab__body"
       aria-hidden="false"
     >
-      <p>テキストテキストテキスト</p>
+      <p>テキスト1テキスト1テキスト1</p>
     </div>
     <div
       class="tab__body"
       aria-hidden="true"
     >
-      <p>テキストテキストテキストテキスト</p>
+      <p>テキスト2テキスト2テキスト2テキスト2</p>
     </div>
   </div>
 </div>
@@ -49,6 +49,19 @@
   }
 
   // ---------- 本体要素 ----------
+  .tab__body[aria-hidden="true"] {
+      display: none;
+      margin: 0;
+      padding: 0;
+      border: none;
+      height: 0;
+      visibility: hidden;
+
+      * {
+        opacity: 0;
+      }
+    }
+
   .tab__body__wrap {
     padding: g.rem(20px);
     background: #fff;
