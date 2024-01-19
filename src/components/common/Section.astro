@@ -29,5 +29,13 @@ const SectionElement = htmlELement ? htmlELement : "section";
   // ---------- 基底要素のインナー要素 ----------
   .section__inner {
     @include g.centering;
+
+    & > :global(*:first-child) {
+      margin-top: 0 !important;
+    }
+
+    & > :global(*:last-child) {
+      margin-bottom: 0 !important;
+    }
   }
 </style>
