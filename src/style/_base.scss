@@ -2,7 +2,7 @@
 @use "global" as g;
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap";
 
-:root:not(.lenis) {
+:root {
   scroll-behavior: smooth;
 }
 
@@ -58,25 +58,4 @@ summary {
 dialog {
   background: transparent;
   border: none;
-}
-
-// Lenis 用のスタイル
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
 }

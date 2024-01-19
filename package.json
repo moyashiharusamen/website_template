@@ -29,7 +29,6 @@
   "dependencies": {
     "@acab/reset.css": "^0.5.3",
     "@astrojs/check": "^0.4.1",
-    "@studio-freight/lenis": "^1.0.23",
     "astro": "^4.0.6",
     "typescript": "^5.3.3"
   },
