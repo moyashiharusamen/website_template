@@ -14,13 +14,13 @@ const uuid = `Modal_${crypto.randomUUID()}`;
 <div class="root modal">
   <button
     type="button"
-    class="button modal__button"
+    class="modal__button"
   >
     {buttonText.map(item => <span>{item}</span>)}
   </button>
 
   <dialog
-    class="nav modal__body"
+    class="modal__body"
     aria-labelledby={uuid}
   >
     <div class="modal__body__inner">
@@ -51,11 +51,11 @@ const uuid = `Modal_${crypto.randomUUID()}`;
   }
 
   // ---------- モーダルを開くボタン要素 ----------
-  // .button {
+  // .modal__button {
   // }
 
   // ---------- モーダルを開くボタンが押されたとき ----------
-  // .button[aria-expanded="true"] {
+  // .modal__button[aria-expanded="true"] {
   // }
 
   // ---------- モーダル本体要素 ----------
@@ -81,6 +81,11 @@ const uuid = `Modal_${crypto.randomUUID()}`;
   .modal__body[open] {
     opacity: 1;
     visibility: visible;
+  }
+
+  .modal__body.-from-show,
+  .modal__body.-to-hide {
+    opacity: 1;
   }
 
   .modal__body__inner {
@@ -135,5 +140,16 @@ const uuid = `Modal_${crypto.randomUUID()}`;
 
   .modal__button__close__text {
     @include g.visibilityHidden;
+  }
+
+  // ---------- 背景のオーバーレイ要素 ----------
+  .root :global(.modal__overlay) {
+    background: rgba(0 0 0 / 0.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
   }
 </style>
