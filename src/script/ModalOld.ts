@@ -5,9 +5,9 @@
 import { isBoolean, isString } from 'lodash';
 
 /**
- * @class Modal
+ * @class ModalOld
  */
-export default class Modal {
+export default class ModalOld {
   base: HTMLElement;
   body: HTMLBodyElement;
   modalBody: HTMLElement;
@@ -32,11 +32,11 @@ export default class Modal {
     'a[href], area[href], input, select, textarea, button, output, video, audio, object, embed, iframe, [tabindex], [onclick]';
 
   /**
-   * 現在の HTML ページ内にあるすべての Modal ブロックをインスタンス化する
+   * 現在の HTML ページ内にあるすべての ModalOld ブロックをインスタンス化する
    */
-  static createAll(name: string = Modal.baseName) {
+  static createAll(name: string = ModalOld.baseName) {
     [...document.getElementsByClassName(`${name}`)].forEach((element: Object) => {
-      new Modal(element, name);
+      new ModalOld(element, name);
     });
   }
 
@@ -79,7 +79,7 @@ export default class Modal {
     this.focusableElement = (() => {
       const elementList: Array<any> = [];
       modalBody
-        .querySelectorAll(Modal.focusableElementList)
+        .querySelectorAll(ModalOld.focusableElementList)
         .forEach(element => elementList.push(element));
       if (elementList.length === 0) elementList.push(this.modalBody);
       return elementList;
