@@ -8,25 +8,17 @@ const { buttonText, bodyText } = Astro.props;
 ---
 
 <div class="root toggle">
-  <div class="inner">
-    <button
-      type="button"
-      class="toggle__button"
-    >
-      {buttonText}
+  <details class="item toggle__details">
+    <summary class="toggle__button">
+      <span class="button">{buttonText}</span>
+    </summary>
 
-      <span class="button__mark"><span class="toggle__button__text">開く</span></span>
-    </button>
-
-    <div
-      class="toggle__body"
-      aria-hidden="true"
-    >
-      <div class="body__inner">
+    <div class="body toggle__body">
+      <div class="body__inner toggle__body__inner">
         {bodyText.map(item => <p set:html={item} />)}
       </div>
     </div>
-  </div>
+  </details>
 </div>
 
 <style lang="scss">
@@ -37,108 +29,58 @@ const { buttonText, bodyText } = Astro.props;
     width: 100%;
     margin-top: g.rem(40px);
     background: #fff;
-    border: 1px solid g.$base-color;
   }
 
-  // ---------- 基底要素のインナー要素 ----------
-  // .inner {
-  // }
-
   // ---------- トグルを開閉するボタン要素 ----------
-  .toggle__button {
+  .button {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: g.rem(20px);
+    background: #fff;
     position: relative;
-
-    @include g.mediaQuery {
-      transform: translateX(g.rem(-4px)) translateZ(0);
-    }
-  }
-
-  // ---------- トグル本体要素が開いているとき ----------
-  .toggle__button[aria-expanded="true"] {
-    .button__mark::before {
-      transform: rotate(0);
-    }
-  }
-
-  // ---------- トグルボタン内の開閉を示すアイコン要素 ----------
-  .button__mark {
-    width: g.rem(30px);
-    height: g.rem(30px);
-    margin: auto;
+    cursor: pointer;
     border: 1px solid g.$base-color;
-    border-radius: 50vh;
+  }
+
+  // 十字線
+  .button::before,
+  .button::after {
+    content: "";
+    display: block;
+    background: g.$base-color;
+    width: g.rem(15px);
+    height: g.rem(1px);
+    margin: auto;
+    transition: 0.2s transform ease-in-out;
     position: absolute;
     top: 0;
     right: g.rem(20px);
     bottom: 0;
 
     @include g.mediaQuery {
-      width: g.rem(35px);
-      height: g.rem(35px);
-    }
-
-    // 十字線
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-      background: g.$base-color;
       width: g.rem(15px);
       height: g.rem(1px);
-      margin: auto;
-      transition: 0.2s transform ease-in-out;
-      position: absolute;
-      inset: 0;
-
-      @include g.mediaQuery {
-        width: g.rem(15px);
-        height: g.rem(1px);
-      }
-    }
-
-    // 縦線
-    &::before {
-      transform: rotate(90deg);
     }
   }
 
-  // ---------- トグルボタン内のテキスト要素 ----------
-  .toggle__button__text {
-    @include g.visibilityHidden;
+  // 縦線
+  .button::before {
+    transform: rotate(90deg);
+  }
+
+  // ---------- トグル本体要素が開いているとき ----------
+  .item[open] .button::before {
+    transform: rotate(0);
   }
 
   // ---------- トグル本体要素 ----------
-  .toggle__body {
-    padding: 0 g.rem(20px) g.rem(20px);
-    visibility: visible;
-    opacity: 1;
-    transition:
-      opacity 0.3s g.$easing,
-      visibility 0.3s g.$easing,
-      margin-top 0.3s g.$easing,
-      padding-top 0.3s g.$easing,
-      padding-bottom 0.3s g.$easing;
-    will-change: margin-top, padding-top, padding-bottom;
+  .body {
+    overflow: hidden;
   }
 
-  // ---------- トグルの本体が閉じているとき ----------
-  .toggle__body[aria-hidden="true"] {
-    visibility: hidden;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-
-    * {
-      visibility: hidden;
-      height: 0;
-      margin: 0;
-      padding: 0;
-      opacity: 0;
-    }
+  .body__inner {
+    padding: g.rem(20px);
   }
 </style>

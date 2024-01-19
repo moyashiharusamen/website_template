@@ -1,5 +1,5 @@
+import ToggleOld from './ToggleOld';
 import Toggle from './Toggle';
-import ToggleNew from './ToggleNew';
 import Modal from './Modal';
 import ModalOld from './ModalOld';
 import Accordion from './Accordion';
@@ -8,8 +8,8 @@ import TextTransition from './TextTransition';
 import Carousel from './Carousel';
 import MomentumScrolling from './MomentumScrolling';
 
+ToggleOld.createAll();
 Toggle.createAll();
-ToggleNew.createAll();
 Modal.createAll();
 ModalOld.createAll();
 Accordion.createAll();

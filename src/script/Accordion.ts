@@ -4,14 +4,14 @@
 
 import Events from 'eventemitter3';
 import { without } from 'lodash';
-import Toggle from './Toggle';
+import ToggleOld from './ToggleOld';
 
 /**
  * @class Accordion
  */
 export default class Accordion {
   events: Object;
-  toggles: Toggle[];
+  toggles: ToggleOld[];
 
   /**
    * @property {string} ブロック名
@@ -48,9 +48,9 @@ export default class Accordion {
     this.events = new Events.EventEmitter();
 
     /**
-     * @type {Toggle[]} Toggle のインスタンス群
+     * @type {ToggleOld[]} ToggleOld のインスタンス群
      */
-    this.toggles = [...item].map(element => new Toggle(element, `${baseName}Item`));
+    this.toggles = [...item].map(element => new ToggleOld(element, `${baseName}Item`));
 
     this.bindEvents();
   }
@@ -64,8 +64,8 @@ export default class Accordion {
   }
 
   /**
-   * Toggle のいずれかが開かれたら、それ以外の Toggle を閉じる
-   * @param {Object} toggle  'open' イベントが発生した（いま開かれた） Toggle インスタンス
+   * ToggleOld のいずれかが開かれたら、それ以外の ToggleOld を閉じる
+   * @param {Object} toggle  'open' イベントが発生した（いま開かれた） ToggleOld インスタンス
    * @return {Void}
    */
   onOpen(toggle: object) {

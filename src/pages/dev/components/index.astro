@@ -6,8 +6,8 @@ import Carousel from "@src/components/parts/Carousel.astro";
 import Text from "@src/components/parts/Text.astro";
 import MediaImage from "@src/components/parts/MediaImage.astro";
 import LinkButton from "@src/components/parts/LinkButton.astro";
+import ToggleOld from "@src/components/parts/ToggleOld.astro";
 import Toggle from "@src/components/parts/Toggle.astro";
-import ToggleNew from "@src/components/parts/ToggleNew.astro";
 import Modal from "@src/components/parts/Modal.astro";
 import ModalOld from "@src/components/parts/ModalOld.astro";
 import Accordion from "@src/components/templates/Accordion.astro";
@@ -221,6 +221,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
           "トグル機能を制御するコンポーネントです",
           "引数 buttonText（必須）はトグルを開閉するボタンに表示するテキストを設定します",
           "引数 bodyText（必須）はトグルで開閉される要素に表示するテキストを設定します",
+          "Toggle コンポーネントとは使用している HTML 要素が異なり、details 要素、 summary 要素を使用しています",
         ]}
       />
     </Section>
@@ -228,15 +229,15 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
     <Section gray={true}>
       <Heading
         level={2}
-        text="ToggleNew コンポーネント"
+        text="旧 Toggle コンポーネント"
       />
 
-      <ToggleNew
+      <ToggleOld
         buttonText="トグルボタン"
         bodyText={["テキストテキストテキスト", "テキストテキスト"]}
       />
 
-      <ToggleNew
+      <ToggleOld
         buttonText="トグルボタン"
         bodyText={["テキストテキストテキスト", "テキストテキスト"]}
       />
@@ -251,7 +252,6 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
           "トグル機能を制御するコンポーネントです",
           "引数 buttonText（必須）はトグルを開閉するボタンに表示するテキストを設定します",
           "引数 bodyText（必須）はトグルで開閉される要素に表示するテキストを設定します",
-          "Toggle コンポーネントとは使用している HTML 要素が異なり、details 要素、 summary 要素を使用しています",
         ]}
       />
     </Section>
