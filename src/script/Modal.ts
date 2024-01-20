@@ -152,6 +152,7 @@ export default class Modal {
       this.button.setAttribute('aria-expanded', `${isOpened}`);
 
       if (isOpened) {
+        // モーダルを開く
         this.modalBody.classList.add('-from-show');
         this.modalBody.showModal();
         requestAnimationFrame(() => this.modalBody.classList.remove('-from-show'));
@@ -159,6 +160,7 @@ export default class Modal {
         this.body.classList.add(this.openClass);
         this.body.style.top = `${-this.windowYPosition}px`;
       } else if (!isOpened) {
+        // モーダルを閉じる
         this.modalBody.classList.add('-to-hide');
         this.modalBody.addEventListener('transitionend', () => {
           this.modalBody.classList.remove('-to-hide');
@@ -166,7 +168,7 @@ export default class Modal {
         }, { once: true });
         this.body.classList.remove(this.openClass);
         this.body.style.top = '';
-        window.scrollTo(0, this.windowYPosition);
+        window.scrollTo({top: this.windowYPosition, left :0, behavior: 'instant'});
         if (this.button.classList.contains(this.activeButtonClass)) this.button.focus();
         this.button.classList.remove(this.activeButtonClass);
       }

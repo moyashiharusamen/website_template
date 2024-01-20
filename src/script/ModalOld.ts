@@ -206,7 +206,7 @@ export default class ModalOld {
         this.body.classList.remove(this.openClass);
         this.body.style.top = '';
         this.modalBody.removeAttribute('tabindex');
-        window.scrollTo(0, this.windowYPosition);
+        window.scrollTo({top: this.windowYPosition, left :0, behavior: 'instant'});
         this.modalBody.addEventListener('transitionend', () => {
           this.modalBody.classList.remove('-to-hide');
         }, { once: true });
