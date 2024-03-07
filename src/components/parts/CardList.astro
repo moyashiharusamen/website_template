@@ -1,0 +1,79 @@
+---
+export interface Props {
+  list: Array<List>;
+}
+
+interface List {
+  imgSrc:  string;
+  imgAlt:  string;
+  imgWidht: string;
+  imgHeight: string;
+  text: string;
+}
+
+const { list } = Astro.props;
+---
+
+<div class="root">
+  <ul class="list">
+    {
+      list.map(item => (
+        <li class="item">
+          <div class="img">
+            <img src={item.imgSrc} alt={item.imgAlt} width={item.imgWidht} height={item.imgHeight}>
+          </div>
+
+          <p class="text">{item.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  @use "../../style/global" as g;
+
+  // ---------- 基底要素 ----------
+  .root {
+    --col: 3;
+
+    margin-top: g.rem(24px);
+  }
+
+  // ---------- リスト要素 ----------
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: g.rem(20px);
+
+    @include g.mediaQuery {
+      display: grid;
+      grid-template-columns: repeat(var(--col), 1fr);
+      gap: g.rem(20px);
+    }
+  }
+
+  .item {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    gap: 0;
+    background: #fff;
+    border: 1px solid #333;
+    border-radius: g.rem(10px);
+    overflow: hidden;
+  }
+
+  // ---------- 画像要素 ----------
+  // .img {
+  // }
+
+  .img > img {
+    width: 100%;
+  }
+
+  // ---------- テキスト要素 ----------
+  .text {
+    padding: 1em;
+  }
+</style>

@@ -14,7 +14,11 @@ import Accordion from "@src/components/templates/Accordion.astro";
 import Tab from "@src/components/parts/Tab.astro";
 import List from "@src/components/parts/List.astro";
 import ListLink from "@src/components/parts/ListLink.astro";
+import CardList from "@src/components/parts/CardList.astro";
 import TextTransition from "@src/components/parts/TextTransition.astro";
+
+import { SITE } from "@src/config";
+const { rootPath } = SITE;
 ---
 
 <BaseLayout
@@ -50,7 +54,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- Text コンポーネント -->
-    <Section>
+    <Section gray={false}>
       <Heading
         level={2}
         text="Text コンポーネント"
@@ -113,7 +117,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- MediaImage コンポーネント -->
-    <Section>
+    <Section gray={false}>
       <Heading
         level={2}
         text="MediaImage コンポーネント"
@@ -171,7 +175,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- ListLink コンポーネント -->
-    <Section>
+    <Section gray={false}>
       <Heading
         level={2}
         text="ListLink コンポーネント"
@@ -207,8 +211,62 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
     </Section>
 
 
-    <!-- Toggle コンポーネント -->
+    <!-- CardList コンポーネント -->
     <Section gray={true}>
+      <Heading
+        level={2}
+        text="CardList コンポーネント"
+      />
+
+      <CardList
+        list={[
+          {
+            imgSrc: `${rootPath}assets/image/dummy.webp`,
+            imgAlt: "600x400",
+            imgWidht: "150",
+            imgHeight: "100",
+            text: "ダミーテキスト1ダミーテキスト1",
+          },
+          {
+            imgSrc: `${rootPath}assets/image/dummy.webp`,
+            imgAlt: "600x400",
+            imgWidht: "150",
+            imgHeight: "100",
+            text: "ダミーテキスト2ダミーテキスト2ダミーテキスト2ダミーテキスト2ダミーテキスト2ダミーテキスト2ダミーテキスト2ダミーテキスト2",
+          },
+          {
+            imgSrc: `${rootPath}assets/image/dummy.webp`,
+            imgAlt: "600x400",
+            imgWidht: "150",
+            imgHeight: "100",
+            text: "ダミーテキスト3ダミーテキスト3ダミーテキスト3",
+          },
+          {
+            imgSrc: `${rootPath}assets/image/dummy.webp`,
+            imgAlt: "600x400",
+            imgWidht: "150",
+            imgHeight: "100",
+            text: "ダミーテキスト4ダミーテキスト4",
+          },
+        ]}
+      >
+      </CardList>
+
+      <Heading
+        level={3}
+        text="コンポーネント説明"
+      />
+
+      <List
+        text={[
+          "",
+        ]}
+      />
+    </Section>
+
+
+    <!-- Toggle コンポーネント -->
+    <Section gray={false}>
       <Heading
         level={2}
         text="Toggle コンポーネント"
@@ -241,7 +299,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- 旧 Toggle コンポーネント -->
-    <Section gray={true}>
+    <Section gray={false}>
       <Heading
         level={2}
         text="旧 Toggle コンポーネント"
@@ -273,7 +331,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- Accordion コンポーネント、 AccordionItem コンポーネント -->
-    <Section>
+    <Section gray={true}>
       <Heading
         level={2}
         text="Accordion コンポーネント、 AccordionItem コンポーネント"
@@ -297,7 +355,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- Modal コンポーネント -->
-    <Section gray={true}>
+    <Section gray={false}>
       <Heading
         level={2}
         text="Modal コンポーネント"
@@ -332,7 +390,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- 旧 Modal コンポーネント -->
-    <Section gray={true}>
+    <Section gray={false}>
       <Heading
         level={2}
         text="旧 Modal コンポーネント"
@@ -368,7 +426,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- Tab コンポーネント -->
-    <Section>
+    <Section gray={true}>
       <Heading
         level={2}
         text="Tab コンポーネント"
@@ -392,7 +450,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- TextTransition コンポーネント -->
-    <Section gray={true}>
+    <Section gray={false}>
       <Heading
         level={2}
         text="TextTransition コンポーネント"
@@ -418,7 +476,7 @@ import TextTransition from "@src/components/parts/TextTransition.astro";
 
 
     <!-- Carousel コンポーネント -->
-    <Section>
+    <Section gray={true}>
       <Heading
         level={2}
         text="Carousel コンポーネント"
