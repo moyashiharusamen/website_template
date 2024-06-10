@@ -7,8 +7,8 @@
     "dev": "astro dev",
     "stylelint": "stylelint '**/*{scss,astro}' --ignore-path .gitignore",
     "stylelint:fix": "stylelint --fix '**/*{scss,astro}' --ignore-path .gitignore",
-    "eslint": "eslint --ext .ts --ignore-path .gitignore .",
-    "eslint:fix": "eslint --fix --ext .ts --ignore-path .gitignore .",
+    "eslint": "eslint '**/*.ts' --ignore-path .gitignore .",
+    "eslint:fix": "eslint '**/*.ts' --fix --ignore-path .gitignore .",
     "markuplint": "markuplint \"**/*.astro\"",
     "prettier:write": "npm run prettier:write:ts && npm run prettier:write:astro && npm run prettier:write:scss",
     "prettier:write:ts": "prettier --write 'src/**/*.ts'",
@@ -28,8 +28,8 @@
   ],
   "dependencies": {
     "@acab/reset.css": "^0.5.3",
-    "@astrojs/check": "^0.4.1",
-    "astro": "^4.0.6",
+    "@astrojs/check": "^0.7.0",
+    "astro": "^4.10.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
