@@ -2,13 +2,13 @@
 
 // ========== hover ==========
 @mixin hover() {
-  &:hover,
-  &:active,
-  &:focus {
+  &:focus-visible {
     @content;
   }
 
-  &:is(:hover, :active, :focus) {
-    @content;
+  @media (any-hover: hover) {
+    &:where(:any-link, :enabled, summary) {
+      @content;
+    }
   }
 }
