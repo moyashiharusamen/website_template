@@ -102,8 +102,6 @@ export default class Modal {
    */
   setAttr() {
     this.button.setAttribute('aria-expanded', 'false');
-    this.modalBody.setAttribute('aria-modal', 'true');
-    this.modalBody.setAttribute('aria-hidden', 'true');
   }
 
   /**
@@ -117,12 +115,13 @@ export default class Modal {
     });
     this.buttonClose.addEventListener('click', () => this.toggle(false));
     this.modalOverlay.addEventListener('click', () => this.toggle(false));
-    this.base.addEventListener('keyup', e => {
+    window.addEventListener('keydown', e => {
       if (
         (e.key === 'Escape' || e.key === 'Esc') &&
-        this.modalBody.getAttribute('aria-hidden') === 'false'
+        this.modalBody.getAttribute('data-active') === 'true'
       ) {
-        this.toggle(false)
+        e.preventDefault();
+        this.toggle(false);
       }
     });
   }
@@ -143,36 +142,51 @@ export default class Modal {
    * @returns {boolean}
    */
   get isOpened() {
-    return this.modalBody.getAttribute('aria-hidden') !== 'true';
+    return this.modalBody.open;
   }
 
   set isOpened(isOpened: boolean) {
     if (isBoolean(isOpened)) {
-      this.modalBody.setAttribute('aria-hidden', `${!isOpened}`);
       this.button.setAttribute('aria-expanded', `${isOpened}`);
 
-      if (isOpened) {
-        // モーダルを開く
-        this.modalBody.classList.add('-from-show');
-        this.modalBody.showModal();
-        requestAnimationFrame(() => this.modalBody.classList.remove('-from-show'));
-        this.windowYPosition = window.scrollY;
-        this.body.classList.add(this.openClass);
-        this.body.style.top = `${-this.windowYPosition}px`;
-      } else if (!isOpened) {
-        // モーダルを閉じる
-        this.modalBody.classList.add('-to-hide');
-        this.modalBody.addEventListener('transitionend', () => {
-          this.modalBody.classList.remove('-to-hide');
-          this.modalBody.close();
-        }, { once: true });
-        this.body.classList.remove(this.openClass);
-        this.body.style.top = '';
-        window.scrollTo({top: this.windowYPosition, left :0, behavior: 'instant'});
-        if (this.button.classList.contains(this.activeButtonClass)) this.button.focus();
-        this.button.classList.remove(this.activeButtonClass);
-      }
+      isOpened ? this.modalOpen() : this.modalClose();
     }
+  }
+
+  /**
+     * モーダルを開く
+     * @return {Void}
+     */
+  modalOpen() {
+    this.modalBody.showModal();
+    requestAnimationFrame(() => {
+      this.modalBody.setAttribute('data-active', 'true');
+    });
+
+    // Y 軸位置固定
+    this.windowYPosition = window.scrollY;
+    this.body.classList.add(this.openClass);
+    this.body.style.top = `${-this.windowYPosition}px`;
+  }
+
+  /**
+     * モーダルを閉じる
+     * @return {Void}
+     */
+  modalClose() {
+    this.modalBody.setAttribute('data-active', 'false');
+    if (getComputedStyle(this.modalBody).getPropertyValue('transition') === 'none') {
+      this.modalBody.close();
+    } else {
+      this.modalBody.addEventListener('transitionend', () => {
+        this.modalBody.close();
+      }, { once: true });
+    }
+
+    // Y 軸位置固定解除
+    this.body.classList.remove(this.openClass);
+    this.body.style.top = '';
+    window.scrollTo({top: this.windowYPosition, left :0, behavior: 'instant'});
   }
 
   /**
